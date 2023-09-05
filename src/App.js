@@ -19,10 +19,12 @@ function App() {
   };
 
   return (
-    <ProductContext.Provider value={(products, addItem)}>
-      <CartContext.Provider value={cart}>
+    <ProductContext.Provider value={{ products, addItem }}>
+      <CartContext.Provider value={{ cart }}>
+        {/* obje olarak tanımlamak gerekiyor süslü parantez içinde süslü parantez */}
+        {/* useContext kullandıktan sonra propsları sil */}
         <div className="App">
-          <Navigation cart={cart} />
+          <Navigation />
 
           {/* Routelar */}
           <main className="content">
@@ -31,7 +33,7 @@ function App() {
             </Route>
 
             <Route path="/cart">
-              <ShoppingCart cart={cart} />
+              <ShoppingCart />
             </Route>
           </main>
         </div>
